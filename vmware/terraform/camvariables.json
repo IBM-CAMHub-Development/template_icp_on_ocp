@@ -265,6 +265,17 @@
       "group_name": "openshift_installer_node_info"
     },
     {
+      "name": "ocp_master_ip",
+      "description": "OCP Installer Node IP",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "OCP Installer Node IP",
+      "hidden": false,
+      "immutable": false,
+      "group_name": "openshift_installer_node_info"
+    },
+    {
       "name": "ocp_infra_ip",
       "description": "OCP Infrastructure Node IP Address",
       "type": "string",
@@ -367,6 +378,32 @@
       "system": false,
       "required": true,
       "immutable": false
-    }
+    },
+    {
+      "name": "ibm_cloud_private_boot_ip",
+      "description": "IBM Cloud Private Boot IP Address",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "IBM Cloud Private Boot IP Address",
+      "hidden": false,
+      "immutable": false
+    },
+    {
+			"name": "registry_config_do_name",
+			"type": "string",
+			"description": "Name of docker private registry data object that contains docker registry details for this deployment.",
+			"hidden": false,
+			"label": "Docker Private Registry Data Object Name",
+			"secured": false
+    },
+    {
+			"name": "icp_install_dir",
+			"type": "string",
+			"description": "ICP Install Directory",
+			"hidden": false,
+			"label": "ICP Install Directory",
+			"secured": false
+		}
   ]
 }
