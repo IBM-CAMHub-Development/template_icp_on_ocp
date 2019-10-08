@@ -23,5 +23,5 @@ output "registry_config_do_name"{
 }
 
 output "icp_install_dir"{
-  value = "${camc_scriptpackage.get_home_dir.result["stdout"]}/ibm-cloud-private-rhos-${var.icp_version}/cluster"
+  value = "/opt/ibm-cloud-private-rhos-${var.icp_version}/cluster"
 }

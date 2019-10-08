@@ -109,18 +109,3 @@ module "icp_config_output" {
   bastion_password    = "${var.bastion_password}"
   #######      
 }
-
-resource "camc_scriptpackage" "get_home_dir" {
-  depends_on = ["module.icp_config_yaml"]
-  program = ["echo $HOME"]
-  on_create = true
-  remote_host = "${element(values(var.ocp_master_host_ip),0)}"
-  remote_user = "${var.installer_vm_os_user}"
-  remote_password = "${var.installer_vm_os_password}"
-  remote_key = "${length(var.icp_private_ssh_key) == 0 ? "${base64encode(tls_private_key.generate.private_key_pem)}" : "${var.icp_private_ssh_key}"}"
-  bastion_host        = "${var.bastion_host}"
-  bastion_user        = "${var.bastion_user}"
-  bastion_private_key = "${var.bastion_private_key}"
-  bastion_port        = "${var.bastion_port}"
-  bastion_password    = "${var.bastion_password}"
-}
