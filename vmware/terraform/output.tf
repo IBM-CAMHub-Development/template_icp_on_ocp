@@ -25,3 +25,11 @@ output "registry_config_do_name"{
 output "icp_install_dir"{
   value = "/opt/ibm-cloud-private-rhos-${var.icp_version}/cluster"
 }
+
+output "registry_ca_cert"{
+  value = "${module.icp_config_output.registry_ca_cert}"
+}  
+
+output "ibm_cloud_private_custer_ca_domain" {
+	value = "${var.icp_cluster_name}.${var.ocp_vm_domain_name}"
+}
