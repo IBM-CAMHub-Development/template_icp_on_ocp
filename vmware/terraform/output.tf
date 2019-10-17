@@ -33,3 +33,7 @@ output "registry_ca_cert"{
 output "ibm_cloud_private_custer_ca_domain" {
 	value = "${var.icp_cluster_name}.${var.ocp_vm_domain_name}"
 }
+
+output "icp_master_ip" {
+  value = "${element(values(var.icp_master_host_ip),0)}"
+}

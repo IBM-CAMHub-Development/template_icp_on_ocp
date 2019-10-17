@@ -32,7 +32,7 @@
 						"value": "${template_output_params.ibm_cloud_private_custer_ca_domain}"
 					}, {
 						"name": "server_ip",
-						"value": "${element(values(template_input_params.icp_master_host_ip),0)}"
+						"value": "${template_output_params.icp_master_ip}"
 					}, {
 						"name": "server_port",
 						"value": "8500"
@@ -433,6 +433,16 @@
 			"hidden": false,
 			"label": "Base64 encoded private docker registry CA certificate",
 			"secured": false
-		}
+    },
+    {
+      "name": "icp_master_ip",
+      "description": "IBM Cloud Private Master IP Address",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "IBM Cloud Private Master IP Address",
+      "hidden": false,
+      "immutable": false
+    }
   ]
 }
