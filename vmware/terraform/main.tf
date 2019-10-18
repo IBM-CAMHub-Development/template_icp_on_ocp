@@ -97,7 +97,7 @@ module "icp_config_output" {
   cluster_name			= "${var.icp_cluster_name}"
   api_server			= "${element(values(var.icp_master_host_ip),0)}"
   api_port				= "8001"
-  reg_server			= "${var.icp_cluster_name}.${var.ocp_vm_domain_name}"
+  reg_server			= "docker-registry.default.svc"
   reg_port				= "5000"
   icp_admin_user        = "${var.icp_admin_user}"
   #######
