@@ -35,7 +35,7 @@
 						"value": "${template_output_params.icp_master_ip}"
 					}, {
 						"name": "server_port",
-						"value": "8500"
+						"value": "5000"
 					}, {
 						"name": "CA_certificate",
 						"value": "${template_output_params.registry_ca_cert}"

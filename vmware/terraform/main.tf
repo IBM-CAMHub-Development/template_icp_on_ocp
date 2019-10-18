@@ -89,7 +89,7 @@ module "icp_config_yaml" {
 
 module "icp_config_output" {
   dependsOn             = "[${module.icp_config_yaml.dependsOn}]"
-  source                = "git::https://github.com/IBM-CAMHub-Development/template_icp_modules.git?ref=2.3//config_output"
+  source                = "git::https://github.com/IBM-CAMHub-Development/template_icp_modules.git?ref=2.3//config_icp_ocp_output"
   vm_os_private_key     = ""
   vm_os_password        = "${var.installer_vm_os_password}"
   vm_os_user            = "${var.installer_vm_os_user}"
@@ -98,7 +98,7 @@ module "icp_config_output" {
   api_server			= "${element(values(var.icp_master_host_ip),0)}"
   api_port				= "8001"
   reg_server			= "${var.icp_cluster_name}.${var.ocp_vm_domain_name}"
-  reg_port				= "8500"
+  reg_port				= "5000"
   icp_admin_user        = "${var.icp_admin_user}"
   #######
   bastion_host        = "${var.bastion_host}"
