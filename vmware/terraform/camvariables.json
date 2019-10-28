@@ -391,6 +391,16 @@
       "immutable": false
     },
     {
+      "name": "ocp_infra_ip",
+      "description": "Openshift Infrastructure Node IP Address",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "Openshift Infrastructure Node IP Address",
+      "hidden": false,
+      "immutable": false
+    },
+    {
       "name": "ibm_cloud_private_boot_ip",
       "description": "IBM Cloud Private Boot IP Address",
       "type": "string",
