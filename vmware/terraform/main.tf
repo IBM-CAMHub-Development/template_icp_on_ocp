@@ -36,7 +36,7 @@ resource "null_resource" "create-temp-random-dir" {
 }
 
 module "icp_download_load" {
-  source                 = "git::https://github.com/IBM-CAMHub-Development/template_icp_modules.git?ref=2.3.47//config_icp_on_ocp_download"
+  source                 = "git::https://github.com/IBM-CAMHub-Development/template_icp_modules.git?ref=3.2.1//config_icp_on_ocp_download"
 
   private_key            = "${length(var.icp_private_ssh_key) == 0 ? "${tls_private_key.generate.private_key_pem}" : "${base64decode(var.icp_private_ssh_key)}"}"
   vm_os_password         = "${var.installer_vm_os_password}"
@@ -58,7 +58,7 @@ module "icp_download_load" {
 }
 
 module "icp_config_yaml" {
-  source                 = "git::https://github.com/IBM-CAMHub-Development/template_icp_modules.git?ref=2.3.47//config_icp_on_ocp_boot"
+  source                 = "git::https://github.com/IBM-CAMHub-Development/template_icp_modules.git?ref=3.2.1//config_icp_on_ocp_boot"
 
   private_key            = "${length(var.icp_private_ssh_key) == 0 ? "${tls_private_key.generate.private_key_pem}" : "${base64decode(var.icp_private_ssh_key)}"}"
   vm_os_password         = "${var.installer_vm_os_password}"
@@ -89,7 +89,7 @@ module "icp_config_yaml" {
 
 module "icp_config_output" {
   dependsOn             = "[${module.icp_config_yaml.dependsOn}]"
-  source                = "git::https://github.com/IBM-CAMHub-Development/template_icp_modules.git?ref=2.3//config_icp_ocp_output"
+  source                = "git::https://github.com/IBM-CAMHub-Development/template_icp_modules.git?ref=3.2.1//config_icp_ocp_output"
   vm_os_private_key     = ""
   vm_os_password        = "${var.installer_vm_os_password}"
   vm_os_user            = "${var.installer_vm_os_user}"
