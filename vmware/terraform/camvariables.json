@@ -454,6 +454,16 @@
       "label": "IBM Cloud Private Master IP Address",
       "hidden": false,
       "immutable": false
+    },
+    {
+      "name": "docker_reg_token",
+      "description": "Docker registry token",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "Docker registry token",
+      "hidden": false,
+      "immutable": false
     }
   ]
 }

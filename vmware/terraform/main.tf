@@ -110,9 +110,9 @@ module "icp_config_output" {
   #######      
 }
 
-resource "camc_scriptpackage" "get_home_dir" {
+resource "camc_scriptpackage" "get_token" {
   depends_on = ["module.icp_config_yaml"]
-  program = ["echo $HOME"]
+  program = ["echo `oc whoami -t`"]
   on_create = true
   remote_host = "${element(values(var.ocp_master_host_ip),0)}"
   remote_user = "${var.installer_vm_os_user}"
