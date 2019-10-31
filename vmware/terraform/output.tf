@@ -22,22 +22,6 @@ output "ibm_cloud_private_boot_ip" {
   value = "${element(values(var.ocp_master_host_ip),0)}"
 }
 
-output "registry_config_do_name"{
-	value = "${var.icp_cluster_name}${random_id.clusterid.hex}RegistryConfig" 
-}
-
-output "icp_install_dir"{
-  value = "/opt/ibm-cloud-private-rhos-${var.icp_version}/cluster"
-}
-
-output "registry_ca_cert"{
-  value = "${module.icp_config_output.registry_ca_cert}"
-}  
-
-output "ibm_cloud_private_custer_ca_domain" {
-	value = "${var.icp_cluster_name}.${var.ocp_vm_domain_name}"
-}
-
 output "icp_master_ip" {
   value = "${element(values(var.icp_master_host_ip),0)}"
 }

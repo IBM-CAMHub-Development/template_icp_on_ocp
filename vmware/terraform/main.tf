@@ -87,29 +87,6 @@ module "icp_config_yaml" {
   dependsOn              = "${module.icp_download_load.dependsOn}"
 }
 
-module "icp_config_output" {
-  dependsOn             = "[${module.icp_config_yaml.dependsOn}]"
-  source                = "git::https://github.com/IBM-CAMHub-Development/template_icp_modules.git?ref=3.2.1//config_icp_ocp_output"
-  vm_os_private_key     = ""
-  vm_os_password        = "${var.installer_vm_os_password}"
-  vm_os_user            = "${var.installer_vm_os_user}"
-  master_node_ip        = "${element(values(var.icp_master_host_ip),0)}"
-  cluster_name			= "${var.icp_cluster_name}"
-  api_server			= "${element(values(var.icp_master_host_ip),0)}"
-  api_port				= "8001"
-  reg_server			= "docker-registry.default.svc"
-  reg_port				= "5000"
-  icp_admin_user        = "${var.icp_admin_user}"
-  #######
-  bastion_host        = "${var.bastion_host}"
-  bastion_user        = "${var.bastion_user}"
-  bastion_private_key = "${var.bastion_private_key}"
-  bastion_port        = "${var.bastion_port}"
-  bastion_host_key    = "${var.bastion_host_key}"
-  bastion_password    = "${var.bastion_password}"
-  #######      
-}
-
 resource "camc_scriptpackage" "get_token" {
   depends_on = ["module.icp_config_yaml"]
   program = ["echo `oc whoami -t`"]
