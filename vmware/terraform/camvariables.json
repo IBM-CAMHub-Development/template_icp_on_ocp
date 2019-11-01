@@ -22,28 +22,7 @@
           }
         ]
       }
-    },
-		{
-			"name": "private_docker_registry",
-			"dataobject": {
-				"name": "${template_output_params.registry_config_do_name}",
-				"attributes": [
-					{
-						"name": "server_name",
-						"value": "${template_output_params.ibm_cloud_private_custer_ca_domain}"
-					}, {
-						"name": "server_ip",
-						"value": "${template_output_params.icp_master_ip}"
-					}, {
-						"name": "server_port",
-						"value": "5000"
-					}, {
-						"name": "CA_certificate",
-						"value": "${template_output_params.registry_ca_cert}"
-					}
-				]
-			}
-		}
+    }
   ],
   "input_groups": [
     {
