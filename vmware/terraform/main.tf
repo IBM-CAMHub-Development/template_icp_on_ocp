@@ -69,7 +69,7 @@ module "icp_config_yaml" {
   icp_admin_user         = "${var.icp_admin_user}"
   icp_admin_password     = "${var.icp_admin_password}"
 
-  icp_master_host        = "${element(keys(var.icp_master_host_ip),0)}"
+  icp_master_host        = "${icp_master_host}"
   icp_proxy_host         = "${var.icp_proxy_host}"
   icp_management_host    = "${var.icp_management_host}"
   ocp_master_host        = "${element(keys(var.ocp_master_host_ip),0)}"

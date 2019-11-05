@@ -42,8 +42,8 @@ variable "icp_admin_password" {
   type    = "string"
 }
 
-variable "icp_master_host_ip" {
-  type = "map"
+variable "icp_master_host" {
+  type = "string"
 }
 
 variable "icp_proxy_host" {

@@ -22,10 +22,6 @@ output "ibm_cloud_private_boot_ip" {
   value = "${element(values(var.ocp_master_host_ip),0)}"
 }
 
-output "icp_master_ip" {
-  value = "${element(values(var.icp_master_host_ip),0)}"
-}
-
 output "docker_reg_token" {
   value = "${camc_scriptpackage.get_token.result["stdout"]}"
 }

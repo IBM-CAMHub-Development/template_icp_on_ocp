@@ -197,12 +197,12 @@
       "group_name": "icpsetting"
     },
     {
-      "name": "icp_master_host_ip",
-      "description": "Master Node Hostname and IP Address, needs to be one of the OCP nodes",
-      "type": "map",
+      "name": "icp_master_host",
+      "description": "Master Node Hostname, needs to be one of the OCP nodes",
+      "type": "string",
       "required": true,
       "secured": false,
-      "label": "Master Node Hostname and IP Address (one of the OCP nodes)",
+      "label": "Master Node Hostname (one of the OCP nodes)",
       "hidden": false,
       "immutable": false,
       "group_name": "icpsetting"
@@ -386,16 +386,6 @@
       "required": true,
       "secured": false,
       "label": "IBM Cloud Private Boot IP Address",
-      "hidden": false,
-      "immutable": false
-    },
-    {
-      "name": "icp_master_ip",
-      "description": "IBM Cloud Private Master IP Address",
-      "type": "string",
-      "required": true,
-      "secured": false,
-      "label": "IBM Cloud Private Master IP Address",
       "hidden": false,
       "immutable": false
     },
