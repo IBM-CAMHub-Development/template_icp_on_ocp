@@ -54,8 +54,16 @@ variable "icp_management_host" {
   type = "string"
 }
 
-variable "ocp_master_host_ip" {
-  type = "map"
+variable "ocp_master_ip" {
+  type = "string"
+}
+
+variable "ocp_console_port" {
+  type = "string"
+}
+
+variable "ocp_console_fqdn" {
+  type = "string"
 }
 
 variable "ocp_infra_ip" {

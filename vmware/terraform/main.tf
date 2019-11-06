@@ -41,7 +41,7 @@ module "icp_download_load" {
   private_key            = "${length(var.icp_private_ssh_key) == 0 ? "${tls_private_key.generate.private_key_pem}" : "${base64decode(var.icp_private_ssh_key)}"}"
   vm_os_password         = "${var.installer_vm_os_password}"
   vm_os_user             = "${var.installer_vm_os_user}"
-  ocp_installer                = "${element(keys(var.ocp_master_host_ip),0)}.${var.ocp_vm_domain_name}"
+  ocp_installer          = "${var.ocp_master_ip}"
   icp_url                = "${var.icp_binary_url}"
   icp_version            = "${var.icp_version}"
   download_user          = "${var.download_user}"
@@ -63,7 +63,7 @@ module "icp_config_yaml" {
   private_key            = "${length(var.icp_private_ssh_key) == 0 ? "${tls_private_key.generate.private_key_pem}" : "${base64decode(var.icp_private_ssh_key)}"}"
   vm_os_password         = "${var.installer_vm_os_password}"
   vm_os_user             = "${var.installer_vm_os_user}"
-  ocp_installer                = "${element(keys(var.ocp_master_host_ip),0)}.${var.ocp_vm_domain_name}"
+  ocp_installer          = "${var.ocp_master_ip}"
   icp_version            = "${var.icp_version}"
   icp_cluster_name       = "${var.icp_cluster_name}"
   icp_admin_user         = "${var.icp_admin_user}"
@@ -72,7 +72,8 @@ module "icp_config_yaml" {
   icp_master_host        = "${var.icp_master_host}"
   icp_proxy_host         = "${var.icp_proxy_host}"
   icp_management_host    = "${var.icp_management_host}"
-  ocp_master_host        = "${element(keys(var.ocp_master_host_ip),0)}"
+  ocp_console_fqdn       = "${var.ocp_console_fqdn}"
+  ocp_console_port       = "${var.ocp_console_port}"
   ocp_vm_domain_name     = "${var.ocp_vm_domain_name}"
   ocp_enable_glusterfs   = "${var.ocp_enable_glusterfs}"
   #######
@@ -91,7 +92,7 @@ resource "camc_scriptpackage" "get_token" {
   depends_on = ["module.icp_config_yaml"]
   program = ["echo `oc whoami -t`"]
   on_create = true
-  remote_host = "${element(values(var.ocp_master_host_ip),0)}"
+  remote_host = "${var.ocp_master_ip}"
   remote_user = "${var.installer_vm_os_user}"
   remote_password = "${var.installer_vm_os_password}"
   remote_key = ""

@@ -19,7 +19,7 @@ output "ibm_cloud_private_admin_password" {
 }
 
 output "ibm_cloud_private_boot_ip" {
-  value = "${element(values(var.ocp_master_host_ip),0)}"
+  value = "${var.ocp_master_ip}"
 }
 
 output "docker_reg_token" {

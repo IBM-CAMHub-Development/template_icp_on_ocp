@@ -255,12 +255,12 @@
       "group_name": "icpdownload"
     },
     {
-      "name": "ocp_master_host_ip",
-      "description": "OCP Installer Node Hostname and IP Address",
-      "type": "map",
+      "name": "ocp_master_ip",
+      "description": "OCP Installer Node IP Address",
+      "type": "string",
       "required": true,
       "secured": false,
-      "label": "OCP Installer Node Hostname and IP Address",
+      "label": "OCP Installer Node IP Address",
       "hidden": false,
       "immutable": false,
       "group_name": "openshift_installer_node_info"
@@ -328,6 +328,28 @@
       "required": true,
       "secured": false,
       "label": "Enabled GlusterFS",
+      "hidden": false,
+      "immutable": false,
+      "group_name": "openshift_installer_node_info"
+    },
+    {
+      "name": "ocp_console_fqdn",
+      "description": "OCP Console FQDN",
+      "type": "string",
+      "required": true,
+      "secured": true,
+      "label": "OCP Console FQDN",
+      "hidden": false,
+      "immutable": false,
+      "group_name": "openshift_installer_node_info"
+    },
+    {
+      "name": "ocp_console_port",
+      "description": "OCP Console Port.",
+      "type": "string",
+      "required": true,
+      "secured": true,
+      "label": "OCP Console Port",
       "hidden": false,
       "immutable": false,
       "group_name": "openshift_installer_node_info"
